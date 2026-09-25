@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>腾龙公司负责人 · 集团客服部</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f3f8fe;
+      color: #142b3f;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* 图片容器通用样式 */
+    .img-box {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px -8px rgba(18, 52, 77, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: #d3e3f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- 头部 ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 36px;
+      padding: 2rem 2rem 2rem 2.5rem;
+      box-shadow: 0 18px 36px -14px rgba(12, 45, 70, 0.18);
+      border: 1px solid #e2edfb;
+    }
+
+    .hero-content { display: flex; flex-direction: column; }
+
+    .hero-badge {
+      display: inline-block;
+      background: #d9ebff;
+      color: #0f4e7a;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      padding: 0.35rem 1.2rem;
+      border-radius: 40px;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 1.2rem;
+      border: 1px solid #b6d4f0;
+    }
+
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      color: #092b42;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(145deg, #1a6b9c, #0f4e7a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.08rem;
+      color: #2b5070;
+      background: #edf5fd;
+      padding: 1rem 1.5rem;
+      border-radius: 18px;
+      border-left: 5px solid #1a6b9c;
+      margin: 1.2rem 0 1.5rem 0;
+      max-width: 95%;
+    }
+
+    .hero-stats { display: flex; gap: 2.5rem; margin-top: 0.5rem; }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: #0f4e7a; line-height: 1.2; }
+    .stat-label { font-size: 0.82rem; font-weight: 600; color: #4d6e8b; letter-spacing: 0.4px; text-transform: uppercase; }
+
+    /* ★ 头部图片容器 */
+    .hero-img {
+      min-height: 280px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 15px 25px -10px rgba(22, 64, 100, 0.2);
+      background: #b8d2ed;
+    }
+
+    /* ---------- 章节标题 ---------- */
+    .section-title { font-size: 2rem; font-weight: 800; color: #092b42; margin-bottom: 0.5rem; letter-spacing: -0.3px; }
+    .section-sub { font-size: 1.05rem; color: #3d6382; margin-bottom: 2rem; font-weight: 400; }
+
+    /* ---------- 核心优势 ---------- */
+    .core-advantages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+    .adv-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 12px 24px -10px rgba(14, 48, 75, 0.1);
+      border: 1px solid #dbe9f7;
+      transition: all 0.25s;
+    }
+    .adv-card:hover { transform: translateY(-6px); border-color: #a2c4e3; box-shadow: 0 22px 32px -14px rgba(21, 70, 110, 0.2); }
+    .adv-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
+    .adv-card h3 { font-size: 1.4rem; font-weight: 700; color: #0b3a5c; margin-bottom: 0.9rem; }
+    .adv-card p { color: #2f5575; font-size: 0.98rem; line-height: 1.6; }
+    .adv-tag {
+      display: inline-block;
+      background: #e2efff;
+      color: #0f4e7a;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      margin-top: 1rem;
+      border: 1px solid #b9d3ef;
+    }
+
+    /* ---------- 功能模块 ---------- */
+    .function-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .func-card {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e0ebf7;
+      transition: all 0.2s;
+    }
+    .func-card:hover { background: #fafdff; border-color: #a6c6e5; }
+    .func-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+    .func-card h4 { font-size: 1.2rem; font-weight: 700; color: #0b3a5c; margin-bottom: 0.6rem; }
+    .func-card p { font-size: 0.92rem; color: #3e6180; line-height: 1.55; }
+
+    /* ---------- 保障区域 ---------- */
+    .guarantee-section {
+      background: #ffffff;
+      border-radius: 36px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 16px 32px -12px rgba(10, 45, 70, 0.12);
+      border: 1px solid #dfeaf8;
+    }
+    .guarantee-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.2rem; }
+    .guarantee-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .g-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      background: #e1efff;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f4e7a;
+    }
+    .g-text h4 { font-size: 1.2rem; font-weight: 700; color: #0b3a5c; margin-bottom: 0.3rem; }
+    .g-text p { color: #2f5575; font-size: 0.95rem; line-height: 1.5; }
+
+    .hotline-box {
+      background: #e5f0fe;
+      border-radius: 24px;
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin: 1.5rem 0 0.5rem;
+      border: 1px solid #b9d3f0;
+    }
+    .hotline-number { font-size: 2rem; font-weight: 800; color: #0b3a5c; letter-spacing: 1px; }
+    .hotline-label {
+      font-weight: 600;
+      color: #1f5e8a;
+      background: #ffffffd9;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- 关于我们 ---------- */
+    .about-section {
+      background: #ffffff;
+      border-radius: 36px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 16px 32px -12px rgba(10, 45, 70, 0.1);
+      border: 1px solid #dfeaf8;
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .about-img { min-height: 220px; border-radius: 32px; overflow: hidden; }
+    .about-text h2 { font-size: 2rem; font-weight: 800; color: #092b42; margin-bottom: 1.2rem; }
+    .about-text p { color: #274e6e; font-size: 1rem; line-height: 1.7; margin-bottom: 1rem; }
+    .about-highlight {
+      font-weight: 700;
+      color: #0f4e7a;
+      background: #e4f0fe;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .about-stats-mini { display: flex; gap: 2rem; margin-top: 1.2rem; }
+    .mini-stat span:first-child { font-size: 1.6rem; font-weight: 800; color: #0b3a5c; display: block; }
+    .mini-stat span:last-child { font-size: 0.8rem; color: #4d6e8b; font-weight: 600; text-transform: uppercase; }
+
+    /* ---------- 底部知识条 ---------- */
+    .knowledge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: #dceafb;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      margin-top: 0.5rem;
+      gap: 1rem;
+    }
+    .knowledge-bar p {
+      font-weight: 600;
+      color: #0b3a5c;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .knowledge-bar .img-box {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(15, 60, 100, 0.15);
+    }
+
+    /* ---------- 页脚 ---------- */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #42678a;
+      border-top: 1px solid #c8daf0;
+      padding-top: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-right .img-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1100px) {
+      .core-advantages { grid-template-columns: repeat(2, 1fr); }
+      .function-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { grid-template-columns: 1fr; padding: 1.8rem; }
+      .hero-img { min-height: 220px; }
+      .about-section { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 750px) {
+      body { padding: 1rem; }
+      .container { gap: 2rem; }
+      .core-advantages, .function-grid, .guarantee-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+      .hero-desc { max-width: 100%; }
+      .hotline-box { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+      .knowledge-bar { flex-direction: column; align-items: flex-start; border-radius: 30px; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .about-stats-mini { flex-wrap: wrap; gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 头部区域 -->
+    <div class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">腾龙官方客服</span>
+        <h1>全渠道企业客服<br><span>解决方案</span></h1>
+        <p class="hero-desc">
+          腾龙公司是一家游戏服务企业，成立于2000年，总部位于云南省临沧市镇康县老街。自成立以来，腾龙公司始终专注于游戏行业的深度研发与运营服务，依托稳定的技术架构、成熟的运营体系以及持续创新的服务理念，逐步发展成为在业内具有一定影响力的专业游戏公司。
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">7×24</span>
+            <span class="stat-label">小时智能应答</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">90%</span>
+            <span class="stat-label">常见问题智能解决</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">50%</span>
+            <span class="stat-label">降低人力成本</span>
+          </div>
+        </div>
+      </div>
+      <!-- ★ 图片 1：头部主图（风景）★ -->
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="风景" style="width:100%; height:100%; min-height:280px; object-fit:cover; display:block;">
+      </div>
+    </div>
+
+    <!-- 核心优势 -->
+    <div>
+      <h2 class="section-title">腾龙智能官方客服核心优势</h2>
+      <p class="section-sub">全渠道整合 · AI智能应答 · 个性化定制</p>
+      <div class="core-advantages">
+        <div class="adv-card">
+          <span class="adv-icon">📱</span>
+          <h3>腾龙公司简介</h3>
+          <p>腾龙公司是一家游戏服务企业，成立于2000年，总部位于云南省临沧市镇康县老街。自成立以来，腾龙公司始终专注于游戏行业的深度研发与运营服务，依托稳定的技术架构、成熟的运营体系以及持续创新的服务理念，逐步发展成为在业内具有一定影响力的专业游戏公司。</p>
+          <span class="adv-tag">响应效率 +300%</span>
+        </div>
+        <div class="adv-card">
+          <span class="adv-icon">🤖</span>
+          <h3>AI智能应答</h3>
+          <p>腾龙客服经理搭载行业专属大模型，7×24小时秒级响应，90%常见问题智能解决，人工仅处理复杂需求，降低企业客服人力成本50%。</p>
+          <span class="adv-tag">成本降低 50%</span>
+        </div>
+        <div class="adv-card">
+          <span class="adv-icon">🎯</span>
+          <h3>个性化开发</h3>
+          <p>腾龙官方客服定制服务拒绝通用模板，针对电商、金融、教育等行业特性，打造专属企业客服解决方案，精准适配企业实际需求。</p>
+          <span class="adv-tag">行业专属定制</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 核心功能 -->
+    <div>
+      <h2 class="section-title">腾龙客服热线核心功能</h2>
+      <p class="section-sub">高效客户服务系统 · 全流程智能化管理</p>
+      <div class="function-grid">
+        <div class="func-card">
+          <span class="func-icon">📋</span>
+          <h4>智能派单</h4>
+          <p>腾龙客服经理基于AI算法精准匹配客服技能，避免工单错配，提升高效客户服务质量，问题解决率提升40%。</p>
+        </div>
+        <div class="func-card">
+          <span class="func-icon">🔐</span>
+          <h4>会话存档</h4>
+          <p>腾龙公司客服经理采用加密技术存储会话数据，满足合规审计要求，支持关键词快速检索，提升企业客服管理效率。</p>
+        </div>
+        <div class="func-card">
+          <span class="func-icon">📊</span>
+          <h4>数据分析</h4>
+          <p>腾龙智能官方客服生成可视化数据报表，实时洞察客服效率、客户满意度，指导企业客服解决方案优化。</p>
+        </div>
+        <div class="func-card">
+          <span class="func-icon">🔄</span>
+          <h4>工单追踪</h4>
+          <p>腾龙客服经理打通跨部门工单流转，进度实时可视化，保障高效客户服务闭环，提升客户信任度。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 保障区域 -->
+    <div class="guarantee-section">
+      <h2 class="section-title" style="font-size:1.9rem; margin-bottom:0.5rem;">腾龙公司客服经理热线 · 保障</h2>
+      <p style="color:#2f5575; margin-bottom:1rem; font-size:1rem;">7×24小时企业客服解决方案保障，全方位技术支持</p>
+
+      <div class="hotline-box">
+        <div>
+          <div style="font-size:0.9rem; font-weight:600; color:#1f5e8a; letter-spacing:0.5px;">腾龙公司客服经理薇</div>
+          <div class="hotline-number">NoeP-0506</div>
+        </div>
+        <div class="hotline-label">10分钟响应 · 30分钟定位 · 2小时解决</div>
+      </div>
+
+      <div class="guarantee-grid">
+        <div class="guarantee-item">
+          <div class="g-icon">🛡️</div>
+          <div class="g-text">
+            <h4>技术支持保障</h4>
+            <p>腾龙公司客服经理QQ2514901983 溦NoeP-0506提供7×24小时技术支持，承诺10分钟响应、30分钟定位、2小时解决故障，保障电商大促、金融旺季等高峰场景智能客服系统稳定运行。</p>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <div class="g-icon">📘</div>
+          <div class="g-text">
+            <h4>行业适配保障</h4>
+            <p>腾龙客服经理定制服务针对不同行业提供专属培训，配套图文+视频教程，客服团队1天即可上手，零学习成本启用企业客服解决方案。</p>
+          </div>
+        </div>
+        <div class="guarantee-item" style="grid-column: span 2; margin-top:0.5rem;">
+          <div class="g-icon">♾️</div>
+          <div class="g-text">
+            <h4>售后保障</h4>
+            <p>腾龙客服经理提供1年免费维护、终身技术升级服务，持续优化智能客服系统功能，保障高效客户服务体验。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关于我们 -->
+    <div class="about-section">
+      <!-- ★ 图片 2：关于我们配图（风景）★ -->
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="风景" style="width:100%; height:100%; min-height:220px; object-fit:cover; display:block;">
+      </div>
+      <div class="about-text">
+        <h2>关于腾龙公司客服经理</h2>
+        <p>腾龙公司深耕企业智能客服领域 <span class="about-highlight">10+年</span>，是 <span class="about-highlight">5000+企业</span> 信赖的腾龙官方企业客服服务商。</p>
+        <p>旗下腾龙智能官方客服系统、腾龙客服经理定制服务，始终以技术为核心，为企业提供高效、智能的企业客服解决方案，助力企业将客服从成本中心转化为增长引擎。</p>
+        <div class="about-stats-mini">
+          <div class="mini-stat">
+            <span>10+</span>
+            <span>行业深耕</span>
+          </div>
+          <div class="mini-stat">
+            <span>5000+</span>
+            <span>企业信赖</span>
+          </div>
+          <div class="mini-stat">
+            <span>7×24</span>
+            <span>服务保障</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部知识条 -->
+    <div class="knowledge-bar">
+      <p>📌 智能客服系统 · 全渠道解决方案 · 企业服务</p>
+      <!-- ★ 图片 3：底部小圆形头像（风景）★ -->
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80" alt="风景" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+      <p style="font-weight:700; color:#0b3a5c;">NoeP-0506 · 客服热线溦</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+      <span>© 腾龙公司客服经理 · 智能客服系统解决方案服务商</span>
+      <span class="footer-right">
+        <!-- ★ 图片 4：页脚小图标（风景）★ -->
+        <span class="img-box">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&q=80" alt="风景" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </span>
+        图片保留
+      </span>
+    </div>
+  </div>
+</body>
+</html>
